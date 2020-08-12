@@ -10,6 +10,15 @@ int n, a[mxN], k;
 
 void solve() {
 	//implementation goes here
+    ll n,k;
+    cin>>n>>k;
+    ll maxi = 0;
+    for(int i = k ; i > 1 ; --i){
+        if(n % i > maxi){
+            maxi = n %i;
+        }
+    }
+    cout<<maxi<<endl;
 }
 
 int main() {
@@ -19,7 +28,6 @@ int main() {
 	int t;
 	cin >> t;
 	for(int i=1; i<=t; ++i) {
-		cout << "Case #" << i << ": ";
 		solve();
 	}
 }
