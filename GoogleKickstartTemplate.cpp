@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define lll __int64
+#define lll int64_t
 #define ll long long
 #define ar array
 

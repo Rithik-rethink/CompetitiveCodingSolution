@@ -16,6 +16,12 @@ void solve() {
     while( i <= b){
         cout<<i<<" ";
         ll temp = ((i - 32) * 5) / 9 ;
+        if(to_string(i).size() == 1){
+            cout<<"  ";
+        }
+        else if(to_string(i).size() == 2){
+            cout<<" ";
+        }
         cout<<temp<<endl;
         i+= c;
     }

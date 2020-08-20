@@ -7,21 +7,25 @@ using namespace std;
 
 const int mxN=2e5;
 int n, a[mxN], k;
-
+ll findprime(ll n){
+    ll i = 2 ;
+    while( i*i <= n){
+        if( n % i == 0){
+            return false;
+        }
+        i += 1;
+    }
+    return true;
+}
 void solve() {
 	//implementation goes here
     ll n;
     cin>>n;
-    if(n % 2 != 0){
-        cout<<0<<endl;
-        return;
+    for(int i = 2;  i <= n ; ++i){
+        if(findprime(i)){
+            cout<<i<<endl;
+        }
     }
-    n /= 2;
-    ll res = 1;
-    for(int i = 0 ; i < n ; ++i){
-        res *= 2;
-    }
-    cout<<res<<endl;
 }
 
 int main() {
