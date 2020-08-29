@@ -1,0 +1,49 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+#define lll int64_t
+#define ll long long
+#define ar array
+
+const int mxN=2e5;
+int n, a[mxN], k;
+
+void solve() {
+	//implementation goes here
+    ll n;
+    cin>>n;
+    map<ll,ll> arr , mp;
+    for(int i = 0 ; i < n ; ++i){
+        ll a;
+        cin>>a;
+        arr[a] += 1;
+    }
+    for(auto itr = arr.begin() ; itr != arr.end() ; ++itr){
+        mp[itr->second] += 1;
+    }
+    ll res = 0 , ans = 99999;
+    for(auto itr = mp.begin();itr!=mp.end() ; itr++){
+        //cout<<itr->first<<" and "<<itr->second<<endl;
+        if(itr->second > res){
+            res = itr->second;
+            ans = 9999;
+            if(itr->first < ans){
+                ans = itr->first;
+            }
+        }
+        //cout<<ans<<" ans"<<endl;
+    }
+    cout<<ans<<endl;
+
+}
+
+int main() {
+	ios::sync_with_stdio(0);
+	cin.tie(0);
+
+	int t;
+	cin >> t;
+	for(int i=1; i<=t; ++i) {
+		solve();
+	}
+}
