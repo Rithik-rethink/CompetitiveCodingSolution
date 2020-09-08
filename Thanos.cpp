@@ -12,33 +12,57 @@ void solve() {
 	//implementation goes here
     ll n;
     cin>>n;
+    n = 2*n;
     vector<ll> arr;
-    set<ll> arr1;
-    for(int i = 0 ; i < 2*n ; ++i ){
+    set<ll> sett;
+    for(int i = 0 ; i < n ; ++i ){
         ll a;
         cin>>a;
         arr.push_back(a);
-        arr1.insert(a);
+        sett.insert(a);
     }
-    if(arr1.size() == 1){
+    if(sett.size() == 1){
         cout<<-1<<endl;
         return;
     }
-    ll j = -1 , res1 = 0 ,res2 = 0;
-    string s ="";
-    for(int i = 0 ; i <= (2*n - n) ; ++i ){
-        
-        res1 = 0;
-        res2 = 0;
-        if(j != -1){
-            res1 = accumulate(arr.begin() + j , arr.begin() + j + i , 0);
+    ll res2 = accumulate(arr.begin() , arr.begin() + n/2 , 0);
+    ll res3 = accumulate(arr.begin() + n/2 , arr.end() , 0);
+    if(res2 != res3){
+        string s = "";
+        for(int j = 0 ; j < n ;++j){
+            s += to_string(arr[j]);
+            s += " ";
         }
-        res2 = accumulate(arr.begin()+i , arr.begin()+ n ,0);
-        res1 += accumulate(arr.begin() + n , arr.end() , 0);
-        if(res1 != res2){
-            s += to_string(arr.begin() + i , arr.begin() + n , 0);
+        s.pop_back();
+        cout<<s<<endl;
+        return;
+    }
+    for(int i = 0 ; i < n ; ++i){
+        ll temp = arr[0];
+        arr.erase(arr.begin() + 0);
+        arr.push_back(temp);
+        ll res = accumulate(arr.begin() , arr.begin() + n/2 , 0);
+        ll res1 = accumulate(arr.begin() + n/2 , arr.end() , 0);
+        //cout<<res<<" "<<res1<<endl;
+        if(res != res1){
+            string s = "";
+            for(int j = 0 ; j < n ;++j){
+                s += to_string(arr[j]);
+                s += " ";
+            }
+            s.pop_back();
+            cout<<s<<endl;
+            return;
         }
     }
+    sort(arr.begin() , arr.end());
+    string s = "";
+    for(int j = 0 ; j < n ;++j){
+        s += to_string(arr[j]);
+        s += " ";
+    }
+    s.pop_back();
+    cout<<s<<endl;
 
 }
 
