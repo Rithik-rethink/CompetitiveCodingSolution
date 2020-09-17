@@ -10,28 +10,28 @@ int n, a[mxN], k;
 
 void solve() {
 	//implementation goes here
-    ll n ;
+    ll n;
     cin>>n;
-    vector<ll> arr , arr1;
+    vector<ll> arr;
     for(int i = 0 ; i < n ; ++i ){
         ll a;
         cin>>a;
         arr.push_back(a);
-        arr1.push_back(a);
     }
-    for(int i = 0 ;i < n ; ++i ){
-        ll temp = i + arr[i]*2;
-        cout<<temp<<endl;
+    ll res = 0 ;
+    ll pos = 0;
+    for(int i = 0 ; i < n - 1 ; ++i ){
+        res += abs(arr[i] - pos) + 1;
+        pos = min(arr[i] , arr[i + 1]);
+        res += abs(arr[i] - pos) + 1;
     }
+    res += abs(arr[n-1] - pos) + 1;
+    cout<<res<<endl;
 }
 
 int main() {
 	ios::sync_with_stdio(0);
 	cin.tie(0);
 
-	int t;
-	cin >> t;
-	for(int i=1; i<=t; ++i) {
-		solve();
-	}
+	solve();
 }

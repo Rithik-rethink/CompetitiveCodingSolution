@@ -10,6 +10,9 @@ int n, a[mxN], k;
 
 void solve() {
 	//implementation goes here
+    ll n , k , d;
+    cin>>n>>k>>d;
+    
 }
 
 int main() {

@@ -10,6 +10,10 @@ int n, a[mxN], k;
 
 void solve() {
 	//implementation goes here
+    ll n,m;
+    cin>>n>>m;
+    ll res = m + (9*(n-1));
+    cout<<res<<endl;
 }
 
 int main() {
@@ -19,7 +23,6 @@ int main() {
 	int t;
 	cin >> t;
 	for(int i=1; i<=t; ++i) {
-		cout << "Case #" << i << ": ";
 		solve();
 	}
 }

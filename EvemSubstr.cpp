@@ -10,17 +10,23 @@ int n, a[mxN], k;
 
 void solve() {
 	//implementation goes here
+    ll n;
+    cin>>n;
+    string s;
+    cin>>s;
+    ll res = 0;
+    for(int i = 0 ; i  < n ; ++i ){
+        ll temp = s[i] - '0';
+        if(temp % 2 == 0){
+            res += 1 + i;
+        }
+    }
+    cout<<res<<endl;
 }
 
 int main() {
 	ios::sync_with_stdio(0);
 	cin.tie(0);
 
-	int t;
-	cin >> t;
-	for(int i=1; i<=t; ++i) {
-		cout << "Case #" << i << ": ";
-		solve();
-	}
+	solve();
 }
-

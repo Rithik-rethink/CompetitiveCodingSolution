@@ -10,17 +10,19 @@ int n, a[mxN], k;
 
 void solve() {
 	//implementation goes here
+    ll n , m;
+    cin>>n>>m;
+    ll res = min(m - 1, n - m);
+    res += (n-1);
+    res += 5;
+    n -= 2;
+    res += n*2;
+    cout<<res<<endl;
 }
 
 int main() {
 	ios::sync_with_stdio(0);
 	cin.tie(0);
 
-	int t;
-	cin >> t;
-	for(int i=1; i<=t; ++i) {
-		cout << "Case #" << i << ": ";
-		solve();
-	}
+	solve();
 }
-

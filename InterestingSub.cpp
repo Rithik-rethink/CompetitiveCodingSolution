@@ -10,19 +10,22 @@ int n, a[mxN], k;
 
 void solve() {
 	//implementation goes here
-    ll n ;
+    ll n;
     cin>>n;
-    vector<ll> arr , arr1;
-    for(int i = 0 ; i < n ; ++i ){
+    vector<ll> arr;
+    for(int i = 0 ; i < n ;++i){
         ll a;
         cin>>a;
         arr.push_back(a);
-        arr1.push_back(a);
     }
-    for(int i = 0 ;i < n ; ++i ){
-        ll temp = i + arr[i]*2;
-        cout<<temp<<endl;
+    for(int i = 1 ; i < n ;++i){
+        if(abs(arr[i] - arr[i-1]) >= 2){
+            cout<<"YES"<<endl;
+            cout<<i<<" "<<i + 1<<endl;
+            return;
+        }
     }
+    cout<<"NO"<<endl;
 }
 
 int main() {
@@ -35,3 +38,4 @@ int main() {
 		solve();
 	}
 }
+

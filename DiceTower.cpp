@@ -10,6 +10,19 @@ int n, a[mxN], k;
 
 void solve() {
 	//implementation goes here
+    ll n;
+    cin>>n;
+    ll temp = n % 14;
+    temp += 14;
+    if( n < 15){
+        cout<<"NO"<<endl;
+        return;
+    }
+    if(temp >= 15 && temp <= 20){
+        cout<<"YES"<<endl;
+        return;
+    }
+    cout<<"NO"<<endl;
 }
 
 int main() {
@@ -19,7 +32,6 @@ int main() {
 	int t;
 	cin >> t;
 	for(int i=1; i<=t; ++i) {
-		cout << "Case #" << i << ": ";
 		solve();
 	}
 }

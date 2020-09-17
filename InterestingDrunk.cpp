@@ -12,16 +12,23 @@ void solve() {
 	//implementation goes here
     ll n ;
     cin>>n;
-    vector<ll> arr , arr1;
+    vector<ll> arr;
     for(int i = 0 ; i < n ; ++i ){
         ll a;
         cin>>a;
-        arr.push_back(a);
-        arr1.push_back(a);
+        arr.emplace_back(a);
     }
-    for(int i = 0 ;i < n ; ++i ){
-        ll temp = i + arr[i]*2;
-        cout<<temp<<endl;
+    sort(arr.begin() , arr.end());
+    ll m;
+    cin>>m;
+    for(int i = 0 ; i < m ; ++i ){
+        ll a;
+        cin>>a;
+        if(a >= arr[n-1]){
+            cout<<n<<endl;
+            continue;
+        }
+        
     }
 }
 
@@ -29,9 +36,6 @@ int main() {
 	ios::sync_with_stdio(0);
 	cin.tie(0);
 
-	int t;
-	cin >> t;
-	for(int i=1; i<=t; ++i) {
-		solve();
-	}
+	solve();
 }
+
