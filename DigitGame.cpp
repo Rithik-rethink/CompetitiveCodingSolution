@@ -9,7 +9,7 @@ const int mxN=2e5;
 int n, a[mxN], k;
 
 bool isEven(ll i){
-    return i % 2;
+    return i % 2==0;
 }
 
 void solve() {
@@ -39,6 +39,7 @@ void solve() {
         }
     }
     ll ce1 = count_if(arr1.begin() , arr1.end() , isEven);
+    // cout<<ce1<<endl;
     ll co1 = arr1.size() - ce1;
     ll ce2 = count_if(arr2.begin() , arr2.end() , isEven);
     ll co2 = arr2.size() - ce2;
