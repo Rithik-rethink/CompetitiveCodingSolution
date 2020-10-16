@@ -10,41 +10,46 @@ int n, a[mxN], k;
 
 void solve() {
 	//implementation goes here
-    ll n, t;
+	ll n , t;
 	cin>>n>>t;
-	vector<ll> arr;
-	map<ll,ll> mp;
+	vector<ll> arr , arr1;
+	map<ll , ll> mp , mp1 , mp2;
+	mp[1] = 0;
+	mp[0] = 0;
+	string s ="";
 	for(int i = 0 ; i < n ; ++i ){
 		ll a;
 		cin>>a;
-		arr.emplace_back(a);
-		mp[a] = i;
+		ll temp = t - a;
+		if(mp1[temp] != 1){
+			arr.emplace_back(a);
+			mp1[a] = 1;
+			s += "0";
+		}
+		else if(mp2[temp] != 1){
+			arr1.emplace_back(a);
+			mp2[a] = 1;
+			s += "1";
+		}
+		else if(mp[0] <= mp[1]){
+			arr.emplace_back(a);
+			mp[0] += 1;
+			mp1[a] = 1;
+			s += "0";
+		}
+		else if(mp[0] > mp[1]){
+			arr1.emplace_back(a);
+			mp[1] += 1;
+			mp2[a] = 1;
+			s += "1";
+		}
+		s += " ";
 	}
-	vector<ll> white,black,white1;
-	for(int i = 0 ; i < n ; ++i ){
-		ll temp = abs(t - arr[i]);
-		if(find(white1.begin() , white1.end() , temp) == white1.end()){
-			white.emplace_back(i);
-			white1.emplace_back(arr[i]);
-		}
-		else{
-			black.emplace_back(i);
-		}
-	}
-	string res = "";
-	for(int i = 0 ; i < n ;++i ){
-		if(find(white.begin() , white.end() , i) != white.end()){
-			
-			res += to_string(0);
-			res += " ";
-		}
-		else{
-			res += to_string(1);
-			res += " ";
-		}
-	}
-	res.pop_back();
-	cout<<res<<endl;
+	s.pop_back();
+	cout<<s<<endl;
+
+
+
 }
 
 int main() {
