@@ -11,6 +11,13 @@ int n, a[mxN], k;
 
 void solve() {
 	//implementation goes here
+    string s;
+    cin>>s;
+    string rev = s;
+    reverse(s.begin() , s.end());
+    if(s == rev);
+        cout<<0<<endl;
+    
 }
 
 int main() {
@@ -20,7 +27,6 @@ int main() {
 	int t;
 	cin >> t;
 	for(int i=1; i<=t; ++i) {
-		cout << "Case #" << i << ": ";
 		solve();
 	}
 }
