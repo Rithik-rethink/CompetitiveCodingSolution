@@ -11,15 +11,15 @@ int n, a[mxN], k;
 
 void solve() {
 	//implementation goes here
-    ll n , k;
+    int n , k;
     cin>>n>>k;
-    vector<ll> arr;
+    vector<int> arr;
     for(int i = 0 ; i < n ; ++i ){
-        ll a;
+        int a;
         cin>>a;
         arr.emplace_back(a);
     }
-    vector<vector<ll>> dp(n+1 , vector<ll> (k+1));
+    vector<vector<int>> dp(n+1 , vector<int> (k+1));
     for(int i = 0 ; i <= k ; ++i ){
         dp[0][i] = 0;
     }
@@ -30,13 +30,11 @@ void solve() {
         for(int j = 1 ; j <= k ; ++j){
             if(arr[i-1] <= j){
                 dp[i][j] = dp[i][j-arr[i-1]] + dp[i-1][j];
-                dp[i][j] = dp[i][j] % mod;
             }
             else{
                 dp[i][j] = dp[i-1][j];
-                dp[i][j] = dp[i][j] % mod;
-
             }
+            dp[i][j] = dp[i][j] % mod;
         }
     }
     cout<<dp[n][k]<<endl;
